@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>ConectaAgro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #c8f0c2;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #2E7D32;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        header h1 {
+            font-size: 20px;
+        }
+
+        header input {
+            flex: 1;
+            padding: 6px;
+            border-radius: 6px;
+            border: none;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* TELAS */
+        section {
+            display: none;
+            padding: 30px;
+        }
+
+        .ativa {
+            display: block;
+        }
+
+        /* LOGIN */
+        .login-container {
+            display: flex;
+            height: calc(100vh - 120px);
+        }
+
+        .login-left {
+            width: 50%;
+            background-color: #2E7D32;
+            color: white;
+            padding: 60px;
+        }
+
+        .login-right {
+            width: 50%;
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            padding: 60px;
+        }
+
+        .login-right input {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        button {
+            background-color: #1B5E20;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        /* HOME */
+        .categorias {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .categoria {
+            background-color: #a5e6a1;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 120px;
+            font-weight: bold;
+        }
+
+        /* CARRINHO */
+        table {
+            width: 100%;
+            background-color: white;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #2E7D32;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <h1>🌱 ConectaAgro</h1>
+    <input type="text" placeholder="Buscar produtos...">
+    <nav>
+        <a onclick="mostrarTela('login')">Login</a>
+        <a onclick="mostrarTela('home')">Home</a>
+        <a onclick="mostrarTela('carrinho')">Carrinho</a>
+    </nav>
+</header>
+
+<!-- LOGIN -->
+<section id="login" class="ativa">
+    <div class="login-container">
+        <div class="login-left">
+            <h2>Bem-vindo!</h2>
+            <p>Conectamos produtores diretamente aos consumidores.</p>
+            <button onclick="mostrarTela('home')">Cadastre-se</button>
+        </div>
+
+        <div class="login-right">
+            <h2>Login</h2>
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Senha">
+            <button onclick="mostrarTela('home')">Entrar</button>
+        </div>
+    </div>
+</section>
+
+<!-- HOME -->
+<section id="home">
+    <h2>Categorias</h2>
+
+    <div class="categorias">
+        <div class="categoria">Frutas</div>
+        <div class="categoria">Vegetais</div>
+        <div class="categoria">Lentilhas</div>
+        <div class="categoria">Sementes</div>
+    </div>
+</section>
+
+<!-- CARRINHO -->
+<section id="carrinho">
+    <h2>Seu Carrinho</h2>
+
+    <table>
+        <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Qtd.</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td>Tomate Orgânico</td>
+            <td>R$ 6,00</td>
+            <td>2</td>
+            <td>R$ 12,00</td>
+        </tr>
+        <tr>
+            <td>Alface Crespa</td>
+            <td>R$ 3,50</td>
+            <td>3</td>
+            <td>R$ 10,50</td>
+        </tr>
+    </table>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>Projeto Web 1 — ConectaAgro — 2025</p>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+    function mostrarTela(id) {
+        const telas = document.querySelectorAll("section");
+        telas.forEach(tela => tela.classList.remove("ativa"));
+        document.getElementById(id).classList.add("ativa");
+    }
+</script>
+
+</body>
+</html>
